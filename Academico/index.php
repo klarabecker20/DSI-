@@ -7,7 +7,7 @@
     </head>
     <body>
         <h2>Sistema de ensino</h2>
-        <form method="get" action="index.php">
+        <form method="post" action="UserDetails.php">
             <table>
                 <tr>
                     <td>Matricula (número):</td>
@@ -78,27 +78,23 @@
             </table>
             <?php
             if ($_GET) {
-                //print_r($_GET);//Imprime tudo que estiver dentro do vetor
-                @$matricula=$_GET['matricula'];
-                @$turma=$_GET['turma'];
-                @$nome=$_GET['nome'];
-                @$telefone=$_GET['telefone'];
-                @$endereco=$_GET['endereco'];
-                @$estado=$_GET['estado'];
-                /*echo('<br>Sua matricula é: '. $matricula); 
-                echo('<br>Sua turma é: '. $turma);
-                echo('<br>Seu nome é: '. $nome);
-                echo('<br>seu telefone é:'.$telefone);
-                echo('<br>seu endereço é:'.$endereco);
-                echo('<br>seu estado é:'.$estado);
-                FOOORA DO IF/ELSE, vai printar sempre que enviar*/
-                if(empty($matricula)||empty($nome)|| empty($turma)|| empty($telefone)|| empty($endereco)|| empty($estado)){
-                    echo ('<div class="alert"> TODOS os campos são obrigatórios </div>');
+                
+                //print_r($_GET); //printa tudo do array
+                @$matricula /*nome da variáve*/= $_GET['matricula'/*índice da variável*/];
+                @$nome = $_GET['nome'];
+                @$turma = $_GET['turma'];
+                @$telefone = $_GET['telefone'];
+                @$endereco = $_GET['endereco'];
+                @$estado= $_GET['estado'];
+                
+                if(empty($matricula)||empty($nome)||empty($turma)||empty($telefone)||empty($endereco)||empty($estado)){
+                    echo ('<div class="alert"> Todos os campos são obrigatórios</div>');
                 } else {
-                //entra aqui se todos os campos obrigatórios foram preenchidos
-                    $result="matricula:".$matricula."<br>turma".$turma."<br>nome".$nome."<br>telefone".$telefone."<br>endereço".$endereco."<br>estado".$estado;
-                    echo($result);
+                    $result = "<br>Matrícula: ".$matricula. "<br>Nome: ".$nome. "<br>Turma".$turma. "<br>Número de telefone: ".$telefone. "<br>Endereço: ".$endereco. "<br>Estado: ".$estado;
+                echo($result);    
                 }
+                /*$nome = $_GET['nome'];
+                echo("Seu nome é: ". $nome);*/
             }
             ?>
         </form>
