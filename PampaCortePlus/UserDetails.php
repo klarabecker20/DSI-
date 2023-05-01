@@ -7,7 +7,6 @@
     <body>
         
         <?php
-        print_r($_POST);
         if($_POST){
                 @$Nome /*nome da variáve*/= $_POST['Nome'];
                 @$Email= $_POST['Email'];

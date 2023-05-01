@@ -3,46 +3,50 @@
     <head>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <link href="css/deafult.css" rel="stylesheet" type="text/css"/>
-         <script src="js/jquery.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.min.js" type="text/javascript"></script>
+        <script src="js/jquery.min.js" type="text/javascript"></script>
         <meta charset="UTF-8">
         <title>Pampa Corte Plus</title>
         <link href="css/default.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <div class="responsive"> 
          <h2>Pampa Corte Plus</h2>
         <form method="post" action="UserDetails.php">
+            <div class="alert alert-warning">
+            <strong>Atenção!</strong> A solicitação para utilizar o sistempa Pampa Corte Plus depende da aprovação do administrador do sistema. Para tal, preencha corretamente todos os campos solicitados. Em breve entraremos em contato.
+            </div>
             <table>
                 <tr>
-                    <td>Nome:</td>
+                    <td class="colunas">Nome:</td>
                     <td>
                         <input type="text" name="Nome"
                                placeholder="Informe seu nome completo">
                     </td>
                 </tr>
                 <tr>
-                    <td>E-mail:</td>
+                    <td class="colunas">E-mail:</td>
                     <td>
                         <input type="text" name="Email"
                                placeholder="Informe seu E-mail">
                     </td>
                 </tr>
                 <tr>
-                    <td>Telefone:</td>
+                    <td class="colunas">Telefone:</td>
                     <td>
                         <input type="text" name="Telefone"
                                placeholder="Informe seu telefome">
                     </td>
                 </tr>
                 <tr>
-                    <td>Atuação:</td>
+                    <td class="colunas">Atuação:</td>
                     <td>
                         <textarea name="Atuacao" Placeholder="Informe a sua área de atuação"> </textarea>
                     </td>
                     <td></td>
                 </tr>
                  <tr>
-                    <td>Selecione um tipo de acesso:</td>
+                     <td class="colunas">Selecione um tipo de acesso:</td>
                     <td>
                         <input type="radio" name="Acesso" value="Administrador">Administrador<br>
                         <input type="radio" name="Acesso" value="Estudante">Estudante <br>
@@ -53,7 +57,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>Estado:</td>
+                    <td class="colunas" >Estado:</td>
                     <td>
                         <select name="Estado">
                             <option value="">Selecione um estado</option>
@@ -64,7 +68,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>cidade:</td>
+                    <td class="colunas">cidade:</td>
                     <td>
                         <select name="Cidade">
                             <option value="">Selecione uma cidade</option>
@@ -77,11 +81,11 @@
                 <tr>
                     <td></td>
                     <td>
-                        <input type="submit" value="Solicitar Acesso"> 
+                        <input class="btn btn-success" type="submit" value="Solicitar Acesso"> 
                     </td>
                 </tr>
             </table>
-            
+            </div>
         <?php
         if($_POST)
             
