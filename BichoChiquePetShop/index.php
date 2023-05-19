@@ -87,7 +87,7 @@
             @$data = $_POST['data'];
             @$observacao = $_POST['observacao'];
             if (empty($nome) || empty($telefone) || empty($animal) || empty($servicoList) || empty($data)) {
-                echo('<div class="alert-danger">Preencher os campos obrigatórios. </div>');
+                echo('<div class="panel panel-danger"><div class= "panel-heading">Preencher os campos obrigatórios.</div></div>');
             } else {
                 echo('<div class="panel panel-success">
                     <div class= "panel-heading"> Dados Informados: </div>
