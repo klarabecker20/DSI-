@@ -15,6 +15,12 @@
             }
             .fundo{
                 background: white;
+                padding-left: 10px;
+                padding-right: 10px;
+                padding: 20px;
+            }
+            .container{
+                height: 100%;
             }
         </style>
     </head>
@@ -29,7 +35,7 @@
                 <div class="row">
                     <div class="col-sm-4">
                         <div class="form-group">
-                            <img src="cachorrinho.png" alt="cachorrinho"/>
+                            <img src="img/cachorrinho.png" alt="cachorrinho"/>
                         </div>
                     </div>
                     <div class="col-sm-4">
@@ -71,13 +77,11 @@
                         <input class="btn btn-info" type="submit" value="Enviar Ordem de Serviço">
                     </div>
                     <div class="col-sm-4">
-                        <img class="patas img-responsive" src="patas.png" alt="duas patas de cachorros"/>
-                        <img class="patas img-responsive" src="patas.png" alt="duas patas de cachorros"/>
+                        <img class="patas img-responsive" src="img/patas.png" alt="duas patas de cachorros"/>
+                        <img class="patas img-responsive" src="img/patas.png" alt="duas patas de cachorros"/>
                     </div>
                 </div>
-        </div>
         </form>
-
         <?php
         if ($_POST) {
             @$nome = $_POST['nome'];
@@ -94,14 +98,17 @@
                         <div class="panel-body">
                             <p>Nome: ' . $nome . '</p>
                             <p>Telefone: ' . $telefone . '</p>
-                            <p>Animal: ' . $animal . '</p>
-                            <p> Serviços escolhidos:' . implode(", ", @$servicoList).'
-                            <p>Data: ' . $data . '</p>
+                            <p>Animal: ' . $animal . '</p>');
+                foreach ($servicoList as $indice => $valor) {
+                    echo '<p> Serviços escolhidos:' . $valor . '</p>';
+                }
+                echo ('<p>Data: ' . $data . '</p>
                             <p>Observação: ' . $observacao . '</p>
                             </div>
                         </div>');
             }
         }
         ?>
+    </div>
 </body>
 </html>
