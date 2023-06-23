@@ -2,10 +2,10 @@
 <html>
     <head>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
-        <script src="../js/jquery.dataTables.min.js" type="text/javascript"></script>
         <script src="js/bootstrap.bundle.min.js" type="text/javascript"></script>
-        <script src="../js/jquery-3.7.0.min.js" type="text/javascript"></script>
-        <link href="../css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery-3.7.0.min.js" type="text/javascript"></script>
+        <link href="css/jquery.dataTables.min.css" rel="stylesheet" type="text/css"/>
+        <script src="js/jquery.dataTables.min.js" type="text/javascript"></script>
         <meta charset="UTF-8">
         <title>página principal</title>
         <style>
