@@ -4,11 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/wamp64/www/BootstrapJQuery/index.php</file>
-            <file>file:/C:/wamp64/www/BootstrapJQuery/shared/hader.php</file>
-            <file>file:/C:/wamp64/www/BootstrapJQuery/carouselBootstrap.php</file>
-            <file>file:/C:/wamp64/www/BootstrapJQuery/tableBootstrap.php</file>
-            <file>file:/C:/wamp64/www/BootstrapJQuery/modalBootstrap.php</file>
-            <file>file:/C:/wamp64/www/BootstrapJQuery/shared/footer.php</file>
+            <file>file:/C:/wamp64/www/BootstrapJQuery/controller/loginController.php</file>
+            <file>file:/C:/wamp64/www/BootstrapJQuery/home.php</file>
         </group>
     </open-files>
 </project-private>

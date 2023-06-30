@@ -1,5 +1,5 @@
 <?php
-require_once './shared/hader.php';
+require_once './shared/header.php';
 ?>
 <h3>Sobre o site!!!</h3>
 <p class="text-bg-dark">
