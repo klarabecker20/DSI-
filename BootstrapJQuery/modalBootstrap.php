@@ -1,5 +1,6 @@
     <?php
-    require_once './shared/hader.php';
+    require_once './shared/header.php';
+    require_once './controller/autenticationController.php';
     ?>
     <a href="#" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#myModal">Abrir Modal</a>
     <!-- The Modal -->

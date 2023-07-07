@@ -1,5 +1,6 @@
     <?php
-    require_once './shared/hader.php';
+    require_once './shared/header.php';
+    require_once './controller/autenticationController.php';
     ?>
     <!-- Carousel -->
 <div id="demo" class="carousel slide" data-bs-ride="carousel" data-interval="10000">

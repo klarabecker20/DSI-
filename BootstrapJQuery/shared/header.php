@@ -16,7 +16,6 @@
                 text-align: justify;
             }
         </style>
-        
     </head>
     <body class="container">
         <div class="row">
@@ -34,10 +33,12 @@
                     <li class="nav-item">
                         <a class="nav-link" href="carouselBootstrap.php">modal carousel</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" style="text-decoration:none;" href="controller/logoutController.php?cod=logout">Logout</a>
+                    </li>
                 </ul>
             </div>
         </div>
         <!--FIM DO MENU -->
         <div class="row">
             <div class="col-md-12 ">
-            

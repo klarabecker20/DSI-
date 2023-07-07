@@ -4,16 +4,16 @@ require_once './shared/header.php';
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        <form method="get" action="controller/loginController.php">
+        <form method="POST" action="controller/loginController.php">
             <div class="row" style="border: 2px solid green; margin: 30px 30px 30px 30px; padding: 20px 20px 20px 20px">
                 <div style="padding-top: 20px;">
                     <div class="mb-3 mt-3">
                         <label for="email" class="form-label">Email:</label>
-                        <input type="email" class="form-control" id="email" placeholder="Insira Seu email" name="email">
+                        <input type="email" class="form-control" id="email" placeholder="Insira Seu email" name="email" required="">
                     </div>
                     <div class="mb-3 mt-3">
                         <label for="senha" class="form-label">Senha:</label>
-                        <input type="password" class="form-control" id="senha" placeholder="Insira Sua senha" name="senha">
+                        <input type="password" class="form-control" id="senha" placeholder="Insira Sua senha" name="senha" required="">
                     </div>
                     <div class="d-grid">
                         <input type="submit" value="logar" class="btn btn-outline-success">
@@ -25,7 +25,11 @@ require_once './shared/header.php';
                         if (isset($cod)) {
                             if ($cod == '171') {
                                 echo ('<div class="alert alert-danger">');
-                                echo ('usuário ou senha inválidos.');
+                                echo ('Usuário ou senha inválidos.');
+                                echo ('</div>');
+                            } else if ($cod == '172') {
+                                echo ('<div class="alert alert-warning">');
+                                echo ('Sua sessão expirou. Realize o login novamente.');
                                 echo ('</div>');
                             }
                         }
