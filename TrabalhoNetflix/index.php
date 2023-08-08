@@ -21,7 +21,7 @@
         </header>
         <div class="row">
             <div class="col-sm-4"></div>
-            <div class="col-sm-4" id="meio">
+            <div class="col-sm-4">
                 <form method="POST" action="controller/loginController.php">
                     <div class="row" style="border-radius: 5px; background-color: black; background:rgba(0,0,0,0.8);
                          margin: 30px 30px 30px 30px; padding: 20px">
@@ -48,14 +48,15 @@
                                     echo ('Verifique usuário ou senha.');
                                     echo ('</div>');
                                 }
-                            }else if ($cod == '51') {
+                            else if ($cod == '51') {
                                             echo ('<br><div class="alert alert-warning">');
                                             echo ('Sua sessão expirou. Realize o login novamente.');
                                             echo ('</div>');
-                                    }
+                            }
+                            }
                             ?>
                         </div>
-                        <label style="color:white"><input style="color=gray" type="checkbox"> Lembre-se de mim?</label>
+                        <label style="color:white"><input style="color:gray;" type="checkbox"> Lembre-se de mim?</label>
                         <br>
                         <br>
                         <br>

@@ -35,7 +35,7 @@ require_once './controller/autenticationController.php';
                 foreach ($result as $data) {
                     echo '<div class="col-md-2" >
                     <a href="./perfis.php?cod='.$data['id'].'">
-                            <img style=" height: 150px; width: 150px;" src="'.$data['img'].'"/></a>
+                            <img style="height: 150px; width: 150px;" src="'.$data['img'].'"/></a>
                             <h5 style="color:white">'.$data['nome'].'</h5>
                     </div>';
                 }
