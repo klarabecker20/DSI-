@@ -9,17 +9,36 @@ require_once './shared/header.php';
                  margin: 30px 30px 30px 30px; padding: 20px">
                 <div class="mb-3 mt-3">
                     <label for="email" class="form-label">Email:</label>
-                    <input type="email" class="form-control" id="email" 
-                           placeholder="Insira seu email" name="email" required="">
+                    <?php
+                    if(isset($_COOKIE['email'])){
+                            echo ('<input type="email" class="form-control" id="email" 
+                           placeholder="Insira seu email" name="email" value="'.$_COOKIE['email'].'" required="">');
+                    }else {
+                            echo ('<input type="email" class="form-control" id="email" 
+                           placeholder="Insira seu email" name="email" required="">');
+                    }
+                    ?>
                 </div>
                 <div class="mb-3 mt-3">
                     <label for="senha" class="form-label">Senha:</label>
                     <input type="password" class="form-control" id="senha" 
                            placeholder="Insira sua senha" name="senha" required="">
                 </div>
+                <div class="mb-3 mt-3">
+                    <?php
+                    if(isset($_COOKIE['email'])){
+                            echo ('<input type="checkbox" class="form-check-input" id="lembrar" 
+                            name="lembrar" checked value="1">');
+                    }else {
+                            echo ('<input type="checkbox" class="form-check-input" id="lembrar" 
+                            name="lembrar" value="1">');
+                    }
+                    ?>
+                    <label for="lembrar" class="form-check-label">Lembre de mim</label>
+                </div>
                 <div class="d-grid">
                     <input type="submit" value="Logar"
-                           class="btn btn-outline-success" >
+                           class="btn btn-outline-success">
                 </div>
                 <div class="d-grid">
                     <?php
