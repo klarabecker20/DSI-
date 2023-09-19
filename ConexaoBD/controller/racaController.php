@@ -1,15 +1,15 @@
 <?php
-require_once './model/ConexaoMysql.php';
+require_once './model/racasModel.php';
 if($_POST){
-    
-}else if ($_REQUEST){
-    
+    //inseri no bd
+}else if($_REQUEST){
+    //edita algo no bd ou exclui algo
+}else {
+    //selecionar algo no bd
+    loadAll();
 }
-function carregarDados(){
-    $db = new ConexaoMysql();
-    $db->Conectar();
-    $sql= "select* from racas";
-    $resultList = $db->Consultar($sql);
-    $db->Desconectar();
-    return $resultList;
+function loadAll(){
+    $racas = new racasModel();
+    $racasList =$racas ->loadAll();
+    return $racasList;
 }
