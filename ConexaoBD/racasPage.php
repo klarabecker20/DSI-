@@ -33,8 +33,13 @@
                 echo '</td>';
                 echo '</tr>';
             }
-            $racas = loadById(5);
-            echo $racas ->nome;
+            $raca = loadById(5);
+            echo $raca ->getNome();
+            echo '<hr>';
+            $raca->setNome('Brasil');
+            echo $raca -> getNome();
+            echo '<hr>';
+            echo $raca ->getFaixapeso();
             ?>
         </tbody>
     </table>

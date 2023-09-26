@@ -1,5 +1,4 @@
 <?php
-
 require_once 'ConexaoMysql.php';
 
 class racasModel {
@@ -83,19 +82,38 @@ class racasModel {
         //Executar método de consulta
         $resultList = $db->Consultar($sql);
         // verifica se retornou um registro da base de dados
-        if (count($resultList == 1)){
+        if ($db->total == 1) {
             //se retornou popula as propriedades de raca 
-            foreach ($resultList as $value){
-                $this ->id= $value['id'];
-                $this ->nome= $value['nome'];
-                $this ->descricao= $value['descricao'];
-                $this ->faixapreco= $value['faixa_preco'];
-                $this ->faixapeso= $value['faixa_peso'];
+            foreach ($resultList as $value) {
+                $this->id = $value['id'];
+                $this->nome = $value['nome'];
+                $this->descricao = $value['descricao'];
+                $this->faixapreco = $value['faixa_preco'];
+                $this->faixapeso = $value['faixa_peso'];
             }
         }
         //Desconectar do banco
         $db->Desconectar();
         return $resultList;
+    }
+
+    public function insert() {
+        //Criar um objeto de conexão
+        $db = new ConexaoMysql();
+        //Abrir conexão com banco de dados
+        $db->Conectar();
+        //Criar consulta
+        $sql = 'INSERT INTO racas values (0,"'.$this->nome.'",
+                "'.$this->descricao.'",
+                "'.$this->faixapeso.'",
+                "'.$this->faixapreco.'")';
+        //Executar método de inserção
+        $db->Executar($sql);
+        
+        //Desconectar do banco
+        $db->Desconectar();
+        
+        return $db->total;
     }
 
 }
