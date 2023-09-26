@@ -33,6 +33,8 @@
                 echo '</td>';
                 echo '</tr>';
             }
+            $racas = loadById(5);
+            echo $racas ->nome;
             ?>
         </tbody>
     </table>

@@ -9,7 +9,14 @@ if($_POST){
     loadAll();
 }
 function loadAll(){
+    //crio um objeto do tipo racas
     $racas = new racasModel();
     $racasList =$racas ->loadAll();
     return $racasList;
+}
+function loadById($id){
+    //crio um objeto do tipo racas
+    $racas = new racasModel();
+    //retorna um objeto de raças preenchido se existir o registro
+    return $racas ->loadById($id);;
 }

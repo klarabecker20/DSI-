@@ -1,13 +1,18 @@
 <?php
+
 require_once 'ConexaoMysql.php';
 
 class racasModel {
+
     //Atributos ou propriedades
     protected $id;
     protected $nome;
     protected $descricao;
     protected $faixapreco;
     protected $faixapeso;
+
+    //alt+insert 
+    //metodos acessores (get) e modificadores (set)
     public function getId() {
         return $this->id;
     }
@@ -48,17 +53,49 @@ class racasModel {
         $this->faixapeso = $faixapeso;
     }
 
-        
+    //Método construtor
     public function __construct() {
-        //Métodos
+        
     }
 
-    public function loadAll(){
+//metodos especialistas
+    public function loadAll() {
+        //Criar um objeto de conexão
         $db = new ConexaoMysql();
+        //Abrir conexão com banco de dados
         $db->Conectar();
-        $sql= "select* from racas";
-        $resultlist = $db->Consultar($sql);
+        //Criar consulta
+        $sql = 'SELECT * FROM racas';
+        //Executar método de consulta
+        $resultList = $db->Consultar($sql);
+        //Desconectar do banco
         $db->Desconectar();
-        return $resultlist;
+        return $resultList;
     }
+
+    public function loadById($id) {
+        //Criar um objeto de conexão
+        $db = new ConexaoMysql();
+        //Abrir conexão com banco de dados
+        $db->Conectar();
+        //Criar consulta
+        $sql = 'SELECT * FROM racas where id =' . $id;
+        //Executar método de consulta
+        $resultList = $db->Consultar($sql);
+        // verifica se retornou um registro da base de dados
+        if (count($resultList == 1)){
+            //se retornou popula as propriedades de raca 
+            foreach ($resultList as $value){
+                $this ->id= $value['id'];
+                $this ->nome= $value['nome'];
+                $this ->descricao= $value['descricao'];
+                $this ->faixapreco= $value['faixa_preco'];
+                $this ->faixapeso= $value['faixa_peso'];
+            }
+        }
+        //Desconectar do banco
+        $db->Desconectar();
+        return $resultList;
+    }
+
 }
