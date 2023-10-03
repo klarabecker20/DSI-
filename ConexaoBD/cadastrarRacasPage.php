@@ -15,32 +15,39 @@
                 if($_REQUEST){
                     $cod= $_REQUEST['cod'];
                     if($cod=='success'){
-                        echo '<div class="alert alert-success"';
+                        echo '<div class="alert alert-success">'
+                        . '';
                         echo 'registro inserido!';
                         echo '</div>';
-                    }else{
+                    }else if ($cod=='error'){
                         echo '<div class="alert alert-danger">';
-                        echo '<span>Erro:</span>ocorreu um erro. tente mais tarde.';
+                        echo '<span>Erro:</span> ocorreu um erro. tente mais tarde.';
                         echo '</div>';
+                    }else if($cod=='edit'){
+                        require_once './controller/racaController.php';
+                        $id= $_REQUEST['id'];
+                        $racaObject = loadById($id);
+                    }else if($cod=='excluir'){
+                        
                     }
                 }
                 ?>
                 <h1>Cadastro de Raças</h1>
                 <div class="form-group">
                     <label for="name">Nome:</label>
-                    <input type="text" class="form-control" name="nome" id="nome">
+                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getNome():'p')?>" name="nome" id="nome">
                 </div>
                 <div class="form-group">
                     <label for="descricao">Descrição:</label>
-                    <input type="text" class="form-control" name="descricao" id="descricao">
+                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getDescricao():'p')?>" name="descricao" id="descricao">
                 </div>
                 <div class="form-group">
                     <label for="faixapreco">Faixa Preço:</label>
-                    <input type="text" class="form-control" name="faixapreco" id="faixapreco">
+                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getFaixapreco():'p')?>" name="faixapreco" id="faixapreco">
                 </div>
                 <div class="form-group">
                     <label for="faixapeso">Faixa Peso:</label>
-                    <input type="text" class="form-control" name="faixapeso" id="faixapeso">
+                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getFaixapeso():'p')?>" name="faixapeso" id="faixapeso">
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success">Salvar</button>

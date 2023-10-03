@@ -15,6 +15,7 @@
             <th>Nome</th>
             <th>Faixa preço</th>
             <th>Faixa peso</th>
+            <th>Operações</th>
         </thead>
         <tbody>
             <?php
@@ -30,6 +31,12 @@
                 echo '</td>';
                 echo '<td>';
                 echo $raca['faixa_preco'];
+                echo '</td>';
+                echo '<td>';
+                //operações
+                echo '<a class="btn btn-primary" href="cadastrarRacasPage.php?cod=edit&&id='.$raca['id'].'">Editar</a>';
+                echo ' ';
+                echo '<a class="btn btn-danger" href="cadastrarRacasPage.php?cod=excluir">Excluir</a>';
                 echo '</td>';
                 echo '</tr>';
             }

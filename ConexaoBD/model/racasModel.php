@@ -103,7 +103,8 @@ class racasModel {
         //Abrir conexão com banco de dados
         $db->Conectar();
         //Criar consulta
-        $sql = 'INSERT INTO racas values (0,"'.$this->nome.'",
+        $sql = 'INSERT INTO racas values (0,
+                "'.$this->nome.'",
                 "'.$this->descricao.'",
                 "'.$this->faixapeso.'",
                 "'.$this->faixapreco.'")';
