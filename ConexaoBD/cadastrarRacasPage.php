@@ -24,8 +24,10 @@
                         echo '<span>Erro:</span> ocorreu um erro. tente mais tarde.';
                         echo '</div>';
                     }else if($cod=='edit'){
+                        //capturo o id q é informado para edição  
                         require_once './controller/racaController.php';
                         $id= $_REQUEST['id'];
+                        //carrego o obj de racas q vai ser modificado
                         $racaObject = loadById($id);
                     }else if($cod=='excluir'){
                         
@@ -33,21 +35,22 @@
                 }
                 ?>
                 <h1>Cadastro de Raças</h1>
+                <input type="hidden" name="id" value="<?php echo @(isset($racaObject)? $racaObject->getId():'')?>">
                 <div class="form-group">
                     <label for="name">Nome:</label>
-                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getNome():'p')?>" name="nome" id="nome">
+                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getNome():'')?>" name="nome" id="nome">
                 </div>
                 <div class="form-group">
                     <label for="descricao">Descrição:</label>
-                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getDescricao():'p')?>" name="descricao" id="descricao">
+                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getDescricao():'')?>" name="descricao" id="descricao">
                 </div>
                 <div class="form-group">
                     <label for="faixapreco">Faixa Preço:</label>
-                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getFaixapreco():'p')?>" name="faixapreco" id="faixapreco">
+                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getFaixapreco():'')?>" name="faixapreco" id="faixapreco">
                 </div>
                 <div class="form-group">
                     <label for="faixapeso">Faixa Peso:</label>
-                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getFaixapeso():'p')?>" name="faixapeso" id="faixapeso">
+                    <input type="text" class="form-control" value="<?php echo @(isset($racaObject)? $racaObject->getFaixapeso():'')?>" name="faixapeso" id="faixapeso">
                 </div>
                 <br>
                 <button type="submit" class="btn btn-success">Salvar</button>

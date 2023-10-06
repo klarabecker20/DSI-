@@ -79,7 +79,6 @@ class ConexaoMysql {
         } catch (Exception $exc) {
             //Em caso de erro desconecta
             $this->mysqli->rollback();
-            $this->Desconecta();
         }
     }
 

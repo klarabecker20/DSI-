@@ -116,5 +116,38 @@ class racasModel {
         
         return $db->total;
     }
+    public function update() {
+        //Criar um objeto de conexão
+        $db = new ConexaoMysql();
+        //Abrir conexão com banco de dados
+        $db->Conectar();
+        //Criar consulta
+        $sql = 'UPDATE racas SET '
+                . 'nome="'.$this->nome.'",'
+                . 'descricao="'.$this->descricao.'",'
+                . 'faixa_peso ="'.$this->faixapeso.'",'
+                . 'faixa_preco ="'.$this->faixapreco.'"'
+                . 'WHERE id = '.$this->id;
+        //Executar método de inserção
+        $db->Executar($sql);
+        //Desconectar do banco
+        $db->Desconectar();
+        
+        return $db->total;
+    }
+    public function delete() {
+        //Criar um objeto de conexão
+        $db = new ConexaoMysql();
+        //Abrir conexão com banco de dados
+        $db->Conectar();
+        //Criar consulta
+        $sql = 'DELETE FROM racas where id='.$this->id;
+        //Executar método de inserção
+        $db->Executar($sql);
+        //Desconectar do banco
+        $db->Desconectar();
+        
+        return $db->total;
+    }
 
 }
