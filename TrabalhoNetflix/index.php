@@ -17,7 +17,7 @@
     </head>
     <body class="container">
         <header>
-            <img src="img/logo.png" alt="" style="width: 15%; padding: 20px;">
+            <a href="index.php"><img src="img/logo.png" alt="" style="width: 15%; padding: 20px;"></a>
         </header>
         <div class="row">
             <div class="col-sm-4"></div>
@@ -26,17 +26,23 @@
                     <div class="row" style="border-radius: 5px; background-color: black; background:rgba(0,0,0,0.8);
                          margin: 30px 30px 30px 30px; padding: 20px">
                         <h3 style="color: white; opacity: 1">Entrar:</h3>
-                        <div style="margin: 20px 0px 0px 0px">
-                            <input style="background-color: #484d50; border-color:#484d50"
-                                   class="form-control" type="email" id="email"
-                                   placeholder="Insira seu Email" name="email" required="">
+                        <div class="mb-3 mt-3">
+                            <?php
+                            if (!isset($_COOKIE['email'])) {
+                                echo('<input type="email" class="form-control" id="email" placeholder="Insira o seu Email"
+                                     name="email" required="" style="background-color: #484d50; border-color:#484d50">');
+                            } else {
+                                echo('<input type="email" class="form-control" id="email" placeholder="E-mail ou número de telefone" name="email" value="' .
+                                $_COOKIE['email'] . '" required="" style="background-color: #484d50; border-color:#484d50;">');
+                            }
+                            ?>
                         </div>
-                        <div style="margin: 20px 0px 0px 0px">
+                        <div class="mb-3 mt-3"">
                             <input style="background-color: #484d50; border-color:#484d50;"
                                    class="form-control" type="password" id="senha"
                                    placeholder="Insira sua senha" name="senha" required="">
                         </div>
-                        <div style="margin: 20px 0px 0px 0px">
+                        <div class="d-grid" >
                             <input type="submit" class="form-control btn btn-danger">
                         </div>
                         <div class="d-grid">
@@ -47,16 +53,24 @@
                                     echo ('<br><div class="alert alert-danger">');
                                     echo ('Verifique usuário ou senha.');
                                     echo ('</div>');
+                                } else if ($cod == '51') {
+                                    echo ('<br><div class="alert alert-warning">');
+                                    echo ('Sua sessão expirou. Realize o login novamente.');
+                                    echo ('</div>');
                                 }
-                            else if ($cod == '51') {
-                                            echo ('<br><div class="alert alert-warning">');
-                                            echo ('Sua sessão expirou. Realize o login novamente.');
-                                            echo ('</div>');
-                            }
                             }
                             ?>
                         </div>
-                        <label style="color:white"><input style="color:gray;" type="checkbox"> Lembre-se de mim?</label>
+                        <div class="col-md"> 
+                            <?php
+                            if (isset($_COOKIE['email'])) {
+                                echo('<input type="checkbox" checked="" class="form-check-input" id="lembrar" name="lembrar" value="1">');
+                            } else {
+                                echo('<input type="checkbox" class="form-check-input" id="lembrar" name="lembrar" value="1">');
+                            }
+                            ?>
+                            <label style="color:white" for="lembrar">Lembre-se de mim</label>
+                        </div>
                         <br>
                         <br>
                         <br>
@@ -67,7 +81,6 @@
             </div>
             <div class="col-sm-4"></div>
         </div>
-        <?php
-        ?>
+<?php ?>
     </body>
 </html>

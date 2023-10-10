@@ -34,7 +34,7 @@ require_once './controller/autenticationController.php';
 
     <body class="container">
         <header>
-            <img src="img/logo.png" alt="" style="width: 15%; padding: 20px;">
+            <a href="index.php"><img src="img/logo.png" alt="" style="width: 15%; padding: 20px;"></a>
             <a style="text-decoration: none; color: white; margin:50px;" href="./home.php">Perfis</a>
             <a style="text-decoration: none; color: red;margin:50px;" href="./controller/logoutController.php?cod=logout">Logout</a>
             <div class="row">

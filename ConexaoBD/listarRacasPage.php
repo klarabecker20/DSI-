@@ -7,7 +7,7 @@
         <script src="js/cdn.jsdelivr.net_npm_bootstrap@5.0.2_dist_js_bootstrap.bundle.min.js" type="text/javascript"></script>
         <script src="js/cdn.datatables.net_1.13.6_js_jquery.dataTables.min.js" type="text/javascript"></script>
         <meta charset="UTF-8">
-        <title></title>
+        <title>Lista</title>
     </head>
     <body class="container">
         <table id="racasTable" class="table table-bordered">
