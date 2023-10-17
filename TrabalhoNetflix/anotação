@@ -1,0 +1,31 @@
+Objetivo: O objetivo deste trabalho prático é aprofundar seus conhecimentos em programação web, especialmente no que diz respeito à organização de dados, autenticação de usuários e o uso de uma arquitetura orientada a objetos.
+
+Descrição do Projeto: Você já desenvolveu a interface de um site similar ao Netflix como parte das avaliações do segundo trimestre. Agora, é hora de adicionar funcionalidades essenciais ao projeto, incluindo um banco de dados para armazenar informações sobre os perfis, filmes e séries, um sistema de autenticação de usuários, bem como as camadas "controller" e "model" para gerenciar as operações relacionadas aos dados.
+
+Tarefas a serem realizadas:
+
+1. Banco de Dados:
+
+Utilize o sistema de gerenciamento de banco de dados MySQL.
+2. Sistema de Login:
+
+Implemente um sistema de autenticação de usuários, permitindo que os usuários se cadastrem, façam login e gerenciem suas contas. As informações de usuário devem ser armazenadas no banco de dados.
+3. Camada Controller:
+
+Crie uma camada de controle (controller) para gerenciar as ações do usuário no sistema. Isso inclui o processamento de solicitações, validação de dados e interação com a camada model.
+4. Camada Model:
+
+Desenvolva a camada model para representar e manipular os dados do banco. Crie classes orientadas a objetos para cada entidade do banco de dados, como "Usuário", "Filme", "Série", "Categoria", etc. As classes model devem realizar operações de CRUD (criação, leitura, atualização e exclusão) no banco de dados.
+Requisitos Técnicos:
+
+Utilize a linguagem de programação PHP para a orientação a objetos.
+Utilize técnicas seguras para a implementação do sistema de login, como criptografia de senhas.
+Siga as melhores práticas de programação para manter seu código organizado e legível.
+Utilize a classe ConexaoMysql.php para o banco de dados.
+Entrega:
+
+O projeto deve ser entregue como um código-fonte organizado em uma estrutura de diretórios clara.
+Inclua um documento de descrição do projeto que explique a estrutura do banco de dados, as funcionalidades do sistema e instruções para a configuração e execução do projeto.
+Prazo de Entrega: O prazo de entrega deste trabalho é [defina a data de entrega].
+
+Avaliação: O trabalho será avaliado mediante defesa com data a ser definida. Serão considerados a qualidade do código, a implementação das funcionalidades solicitadas, a organização do projeto e a documentação fornecida.
