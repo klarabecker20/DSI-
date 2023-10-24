@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- NOVO -->
+ANTIGO
 <html>
     <head>
         <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
@@ -67,7 +67,7 @@
                             if (isset($_COOKIE['email'])) {
                                 echo('<input type="checkbox" checked="" class="form-check-input" id="lembrar" name="lembrar" value="1">');
                             } else {
-                                echo('<input type="checkbox" checked="" class="form-check-input" id="lembrar" name="lembrar" value="1">');
+                                echo('<input type="checkbox" class="form-check-input" id="lembrar" name="lembrar" value="1">');
                             }
                             ?>
                             <label style="color:white" for="lembrar">Lembre-se de mim</label>

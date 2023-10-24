@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 17-Out-2023 às 14:56
--- Versão do servidor: 8.0.30
--- versão do PHP: 7.4.26
+-- Tempo de geração: 18-Out-2023 às 01:15
+-- Versão do servidor: 8.0.34
+-- versão do PHP: 8.0.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -20,6 +20,8 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `netflix`
 --
+CREATE DATABASE IF NOT EXISTS `netflix` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;
+USE `netflix`;
 
 -- --------------------------------------------------------
 
@@ -45,6 +47,26 @@ INSERT INTO `categorias` (`id`, `nome`, `descricao`) VALUES
 (3, 'drama', 'categoria das obras de drama'),
 (4, 'infantil', 'categoria das obras infantis'),
 (5, 'nacionais', 'categoria das obras nacionais');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura da tabela `obras`
+--
+
+DROP TABLE IF EXISTS `obras`;
+CREATE TABLE IF NOT EXISTS `obras` (
+  `id` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(200) NOT NULL,
+  `serie_ou_filme` char(1) NOT NULL,
+  `lancamento` date NOT NULL,
+  `perfis_id` int NOT NULL,
+  `categorias_id` int NOT NULL,
+  `link` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`,`perfis_id`,`categorias_id`),
+  KEY `fk_Filmes_perfis1_idx` (`perfis_id`),
+  KEY `fk_filmes_categorias1_idx` (`categorias_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb3;
 
 -- --------------------------------------------------------
 
@@ -81,6 +103,13 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
 --
 -- Restrições para despejos de tabelas
 --
+
+--
+-- Limitadores para a tabela `obras`
+--
+ALTER TABLE `obras`
+  ADD CONSTRAINT `fk_filmes_categorias1` FOREIGN KEY (`categorias_id`) REFERENCES `categorias` (`id`),
+  ADD CONSTRAINT `fk_Filmes_perfis1` FOREIGN KEY (`perfis_id`) REFERENCES `perfis` (`id`);
 
 --
 -- Limitadores para a tabela `perfis`
