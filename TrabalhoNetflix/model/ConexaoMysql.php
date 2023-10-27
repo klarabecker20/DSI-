@@ -5,7 +5,7 @@ class ConexaoMysql {
     protected $server = '127.0.0.1'; //Endereço do servidor
     protected $user = 'root'; //Usuario que acessa o banco
     protected $pass = '202211276024'; //Senha do usuário
-    protected $dataBase = 'bichochique'; //Nome da base de dados
+    protected $dataBase = 'netflix'; //Nome da base de dados
 
     /** Informa o TOTAL de qualquer registro afetado
       (SELECT, INSERT, UPDATE, DELETE) na base. */
@@ -52,7 +52,7 @@ class ConexaoMysql {
             }
         } catch (Exception $exc) {
             //Desconectar....
-            $this->Desconecta();
+            $this->Desconectar();
         }
     }
 
