@@ -8,7 +8,6 @@ class usuariosModel {
     protected $email;
     protected $senha;
     protected $nome;
-    protected $tipo_usuario;
 
     public function getId() {
         return $this->id;
@@ -92,7 +91,7 @@ class usuariosModel {
             header('location:../index.php?cod=50');
         }
         if (!isset($lembrar)) {
-            if ($lembrar == 0) {
+            if ($lembrar == 1) {
                 setcookie('email', $email, time() + (86400 * 30), "/");
             }else{
                 @setcookie('email', $email, time() - 86400, "/");
@@ -110,4 +109,3 @@ class usuariosModel {
 
 }
 ?>
-<!--  -->

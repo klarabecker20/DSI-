@@ -14,7 +14,7 @@ require_once './controller/autenticationController.php';
         <title>Perfis</title>
         <style>
             body{
-                background-color: black;
+                b ackground-color: black;
             }
             .filmes{
                 width: 100%;
@@ -23,7 +23,7 @@ require_once './controller/autenticationController.php';
             .filmes:hover{
                 opacity: 0.3;
                 transform: scale(1.2);
-                
+
             }
             #text{
                 padding-left: 3%;
@@ -37,6 +37,15 @@ require_once './controller/autenticationController.php';
             <a href="index.php"><img src="img/logo.png" alt="" style="width: 15%; padding: 20px;"></a>
             <a style="text-decoration: none; color: white; margin:50px;" href="./home.php">Perfis</a>
             <a style="text-decoration: none; color: red;margin:50px;" href="./controller/logoutController.php?cod=logout">Logout</a>
+            <a style="text-decoration: none; color: green;margin:50px;" href="index.php?pg=2&&id=
+            <?php
+            require_once './model/usuariosModel.php';
+            $usuario = new usuariosModel();
+            $usuario = $_REQUEST['id'];
+            echo '' . $usuario['id'] . ''
+            ?>">Alterar Cadastro</a>
+
+
             <div class="row">
                 <?php
                 $falcao = array("img/filmes/falcao/VeF1.jpeg", "img/filmes/falcao/+Ve+F.jpeg", "img/filmes/falcao/VeF.T.jpeg", "img/filmes/falcao/VeF.4.jpeg", "img/filmes/falcao/VeF.R.jpeg");
