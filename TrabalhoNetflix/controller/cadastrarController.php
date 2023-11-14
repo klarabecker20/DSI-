@@ -6,7 +6,6 @@ if ($_POST) {
     $usuario->setEmail($_POST['email']);    
     $usuario->setSenha($_POST['senha']);
     $usuario->setNome($_POST['nome']);
-    $usuario->lo;
     if(!empty($_POST['email'])&&!empty($_POST['senha'])&&!empty($_POST['nome'])){
         $total = $usuario->insert(); 
         header('location:../home.php');

@@ -1,7 +1,5 @@
 <?php
-
 require_once 'ConexaoMysql.php';
-
 class categoriasModel {
 
     protected $id;

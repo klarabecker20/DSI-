@@ -17,7 +17,6 @@
         </style>
     </head>
     <body class="container">
-
         <header>
             <a href="index.php"><img src="img/logo.png" alt="Logo da Netflix" style="width: 15%; padding: 20px;"></a>
         </header>
@@ -36,48 +35,47 @@
                             echo '<h3 style="color: white; opacity: 1">Cadastrar:</h3>';
                             echo '<div class="mb-3 mt-3">';
                             echo '<input type="email" class="form-control" id="email" placeholder="Insira seu Email"
-                             name="email" required="" style="background-color: #484d50; border-color:#484d50">';
+                            name="email" required="" style="background-color: #484d50; border-color:#484d50">';
                             echo '</div>';
                             echo '<div class="mb-3 mt-3">';
                             echo '<input style="background-color: #484d50; border-color:#484d50;"
-                           class="form-control" type="password" id="senha"
-                           placeholder="Insira sua senha" name="senha" required>';
+                            class="form-control" type="password" id="senha"
+                            placeholder="Insira sua senha" name="senha" required>';
                             echo '</div>';
                             echo '<div class="mb-3 mt-3">';
                             echo '<input style="background-color: #484d50; border-color:#484d50;"
-                           class="form-control" type="text" id="nome"
-                           placeholder="Insira seu nome" name="nome" required>';
+                            class="form-control" type="text" id="nome"
+                            placeholder="Insira seu nome" name="nome" required>';
                             echo '</div>';
                             echo '<div class="d-grid" >
-                    <input type="submit" class="form-control btn btn-danger">
-                    </div>';
+                            <input type="submit" class="form-control btn btn-danger">
+                            </div>';
                             echo '</form>';
                         } else if ($pg == '2') {
-                            //capturo o id q é informado para edição  
                             require_once './controller/loginController.php';
-                            @$id = $_REQUEST['id'];
-                            //carrego o obj dos usuarios q vai ser modificado
-                            $usuario = new usuariosModel();
-                            $usuario->loadById($id);
-                            echo '<form method="POST" action="controller/cadastrarController.php">';
+                            $id = $_REQUEST['id'];
+                            $usuarioObject = loadById($id);
+                            echo '<form method="POST" action="controller/loginController.php">';
                             echo '<h3 style="color: white; opacity: 1">Alterar:</h3>';
                             echo '<div class="mb-3 mt-3">';
+                            echo '<input type="hidden" name="id" value="' . @(isset($usuarioObject) ? $usuarioObject->getId($id) : '') . '" >';
                             echo '<input type="email" class="form-control" id="email" placeholder="Insira seu Email"
-                             name="email" required="" style="background-color: #484d50; border-color:#484d50">';
+                            name="email" required=""value="' . @(isset($usuarioObject) ? $usuarioObject->getEmail() : '') . '"
+                            style="background-color: #484d50; border-color:#484d50">';
                             echo '</div>';
                             echo '<div class="mb-3 mt-3">';
                             echo '<input style="background-color: #484d50; border-color:#484d50;"
-                           class="form-control" type="password" id="senha"
-                           placeholder="Insira sua senha" name="senha" required>';
+                            class="form-control" type="password" id="senha" value="' . @(isset($usuarioObject) ? $usuarioObject->getSenha() : '') . '"
+                            placeholder="Insira sua senha" name="senha" required>';
                             echo '</div>';
                             echo '<div class="mb-3 mt-3">';
                             echo '<input style="background-color: #484d50; border-color:#484d50;"
-                           class="form-control" type="text" id="nome"
-                           placeholder="Insira seu nome" name="nome" required>';
+                            class="form-control" type="text" id="nome" value="' . @(isset($usuarioObject) ? $usuarioObject->getNome() : '') . '"
+                            placeholder="Insira seu nome" name="nome" required>';
                             echo '</div>';
                             echo '<div class="d-grid" >
-                    <input type="submit" class="form-control btn btn-danger">
-                    </div>';
+                            <input type="submit" class="form-control btn btn-danger">
+                            </div>';
                             echo '</form>';
                         }
                     } else {
@@ -96,12 +94,12 @@
                         }
                         echo '<div class="mb-3 mt-3">';
                         echo '<input style="background-color: #484d50; border-color:#484d50;"
-                       class="form-control" type="password" id="senha"
-                       placeholder="Insira sua senha" name="senha" required>';
+                        class="form-control" type="password" id="senha"
+                        placeholder="Insira sua senha" name="senha" required>';
                         echo '</div>';
                         echo '<div class="d-grid" >
-                <input type="submit" class="form-control btn btn-danger">
-                </div>';
+                        <input type="submit" class="form-control btn btn-danger">
+                        </div>';
                         echo '<div class="d-grid">';
                         $cod = isset($_REQUEST['cod']) ? $_REQUEST['cod'] : null;
                         if (isset($cod)) {

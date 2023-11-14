@@ -2,7 +2,7 @@
 
 require_once 'ConexaoMysql.php';
 
-class categoriasModel {
+class obras_has_perfisModel {
     protected $obras_id;
     protected $perfis_id;
     public function __construct() {

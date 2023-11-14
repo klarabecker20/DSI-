@@ -1,23 +1,11 @@
 
-2. Sistema de Login:
-
-Implemente um sistema de autenticação de usuários, permitindo que os usuários se cadastrem, façam login e gerenciem suas contas. As informações de usuário devem ser armazenadas no banco de dados.
-3. Camada Controller:
-
-Crie uma camada de controle (controller) para gerenciar as ações do usuário no sistema. Isso inclui o processamento de solicitações, validação de dados e interação com a camada model.
-4. Camada Model:
-
-Desenvolva a camada model para representar e manipular os dados do banco. Crie classes orientadas a objetos para cada entidade do banco de dados, como "Usuário", "Filme", "Série", "Categoria", etc. As classes model devem realizar operações de CRUD (criação, leitura, atualização e exclusão) no banco de dados.
-Requisitos Técnicos:
-
-Utilize a linguagem de programação PHP para a orientação a objetos.
-Utilize técnicas seguras para a implementação do sistema de login, como criptografia de senhas.
-Siga as melhores práticas de programação para manter seu código organizado e legível.
-Utilize a classe ConexaoMysql.php para o banco de dados.
-Entrega:
-
-O projeto deve ser entregue como um código-fonte organizado em uma estrutura de diretórios clara.
-Inclua um documento de descrição do projeto que explique a estrutura do banco de dados, as funcionalidades do sistema e instruções para a configuração e execução do projeto.
-Prazo de Entrega: O prazo de entrega deste trabalho é [defina a data de entrega].
-
-Avaliação: O trabalho será avaliado mediante defesa com data a ser definida. Serão considerados a qualidade do código, a implementação das funcionalidades solicitadas, a organização do projeto e a documentação fornecida.
+        if (!isset($lembrar)) {
+            if ($lembrar == 1) {
+                setcookie('email', $email, time() + (86400 * 30), "/");
+            } else if ($lembrar == 0) {
+                setcookie('email', $email, time() - 86400, "/");
+            }
+            //Criei a sessão "login"
+            $_SESSION['login'] = $email;
+            header('location:../home.php');
+        }

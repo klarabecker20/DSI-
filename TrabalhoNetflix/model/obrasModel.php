@@ -2,7 +2,7 @@
 
 require_once 'ConexaoMysql.php';
 
-class categoriasModel {
+class obrasModel {
     protected $id;
     protected $nome;
     protected $link;
