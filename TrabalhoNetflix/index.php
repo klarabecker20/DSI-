@@ -83,7 +83,7 @@
                         echo '<h3 style="color: white; opacity: 1">Entrar:</h3>';
                         if (!isset($_COOKIE['email'])) {
                             echo '<div class="mb-3 mt-3">';
-                            echo '<input type="email" class="form-control" id="email" placeholder="Insiira seu Email"
+                            echo '<input type="email" class="form-control" id="email" placeholder="Insira seu Email"
                              name="email" required="" style="background-color: #484d50; border-color:#484d50">';
                             echo '</div>';
                         } else {
@@ -114,22 +114,18 @@
                             }
                         }
                         echo '</div>';
-                        echo '</form>';
-                    }
-                    ?>
-                    <div>
-                        <?php
-                        echo '<form  method="post" action="controller/loginController.php">';
                         echo '<label style="color:white" for="lembrar">';
                         if (!isset($_COOKIE['email'])) {
-                            echo('<input type="checkbox" checked="" class="form-check-input" for="lembrar" id="lembrar" name="lembrar" value="1">');
+                            echo('<input type="checkbox" class="form-check-input" '
+                            . 'for="lembrar" id="lembrar" name="lembrar" value="1">');
                         } else {
                             echo('<input type="checkbox" checked="" class="form-check-input" for="lembrar" id="lembrar" name="lembrar" value="1">');
                         }
                         echo '  Lembre-se de mim </label>';
-                        echo '</form>';
-                        ?>
-                    </div>
+                    }
+
+                    echo '</form>';
+                    ?>
                     <p style="color:white">Novo por aqui? <b><a href="index.php?pg=1">Assine agora.</a></b></p>
                     <p style="color:white">Esta página é protegida pelo Google reCAPTCHA para garantir que você não é um robô. <a href="">Saiba mais.</a></p>
                 </div>

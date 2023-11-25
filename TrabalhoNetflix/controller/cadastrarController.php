@@ -15,9 +15,3 @@ if ($_POST) {
 } else {
     header('location:../index.php');
 }
-function loadAll() {
-    require_once './model/usuariosModel.php';
-    $usuario = new usuariosModel();
-    $usuarios = $usuario->loadAll();
-    return $usuarios;
-} 

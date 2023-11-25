@@ -52,6 +52,7 @@ class usuariosModel {
 //Abrir conexão com banco de dados
         $db->Conectar();
 //Criar consulta
+        $this->senha = md5($this->senha);
         $sql = 'INSERT INTO usuarios values (0,
                 "' . $this->email . '",
                 "' . $this->senha . '",
@@ -77,16 +78,23 @@ class usuariosModel {
         return $resultList;
     }
 
-    public function Autenticar($email,$senha) {
-        $sql = 'SELECT * FROM usuarios WHERE email = "' . $email . '" AND senha = "' . $senha . '"';
+    public function Autenticar($email, $senha, $lembrar) {
+        $sql = 'SELECT * FROM usuarios WHERE email = "' . $email . '" AND senha = "' . md5($senha) . '"';
         $db = new ConexaoMysql();
         $db->Conectar();
         $resultList = $db->Consultar($sql);
-        if ($db->total == 1) {
+        $total = $db->total;
+        if (isset($lembrar)) {
+            if ($lembrar == 1) {
+                setcookie('email', $email, time() + (86400 * 30), "/");
+            }
+        }
+        if ($total == 1) {
             foreach ($resultList as $data) {
                 $this->id = $data['id'];
                 $this->email = $data['email'];
             }
+
             @session_start();
             $_SESSION['id'] = $this->id;
             $_SESSION['login'] = $this->email;
@@ -97,7 +105,6 @@ class usuariosModel {
 
         $db->Desconectar();
         return $resultList;
-        
     }
 
     public function loadById($id) {
@@ -132,7 +139,7 @@ class usuariosModel {
 //Criar consulta
         $sql = 'UPDATE usuarios SET '
                 . 'email="' . $this->email . '",'
-                . 'senha="' . $this->senha . '", '
+                . 'senha="' . md5($this->senha) . '", '
                 . 'nome ="' . $this->nome . '"'
                 . ' WHERE id = ' . $this->id;
 //Executar método de inserção

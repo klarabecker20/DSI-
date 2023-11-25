@@ -1,11 +1,13 @@
 <?php
+
 if ($_POST) {
     $email = $_POST['email'];
     $senha = $_POST['senha'];
     @$nome = $_POST['nome'];
+    $lembrar = $_POST ['lembrar'];
     require_once '../model/usuariosModel.php';
     $usuario = new usuariosModel();
-    if(isset($_POST['id'])){
+    if (isset($_POST['id'])) {
         $usuario->setNome($nome);
         $usuario->setEmail($email);
         $usuario->setId($_POST['id']);
@@ -13,7 +15,7 @@ if ($_POST) {
         $usuario->update();
         header('location:../home.php');
     } else {
-    $usuario->Autenticar($email,$senha); //retorna 0 ou 1  
+        $usuario->Autenticar($email, $senha, $lembrar); //retorna 0 ou 1  
     }
 } else if ($_REQUEST) {
     if (isset($_REQUEST)) {
@@ -23,15 +25,13 @@ if ($_POST) {
         $usuario->loadById($id);
     }
 }
-function loadById($id) {
-    //Importo raças model
-    require_once './model/usuariosModel.php';
-    //Crio um objeto do tipo raças
-    $usuario = new usuariosModel();
 
-    //Executa o método para carregar por id
+function loadById($id) {
+    require_once './model/usuariosModel.php';
+    $usuario = new usuariosModel();
     $usuario->loadById($id);
 
     return $usuario;
 }
+
 ?>
